@@ -1,6 +1,6 @@
 package org.example;
 
-import org.hibernate.Session;
+import org.example.service.StudentService;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -12,16 +12,12 @@ public class Main {
                 = new AnnotationConfigApplicationContext("org.example");
 
         SessionFactory sessionFactory = context.getBean(SessionFactory.class);
-        Session session = sessionFactory.openSession();
+        StudentService studentService = new StudentService(sessionFactory);
 
         Student student1 = new Student("Vasya", 22);
         Student student2 = new Student("Pasha", 23);
 
-        session.beginTransaction();
-        session.persist(student1);
-        session.persist(student2);
-        session.getTransaction().commit();
-
-        session.close();
+        studentService.saveStudent(student1);
+        studentService.saveStudent(student2);
     }
 }
