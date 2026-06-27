@@ -29,7 +29,11 @@ public class GroupService {
 
     public List<Group> findAll() {
         try(Session session = sessionFactory.openSession()){
-            return session.createQuery("SELECT g from Group g", Group.class)
+            return session.createQuery("""
+                        SELECT g FROM Group g
+                        LEFT JOIN FETCH g.studentList s
+                        LEFT JOIN FETCH s.profile
+                        """, Group.class)
                     .list();
         }
     }

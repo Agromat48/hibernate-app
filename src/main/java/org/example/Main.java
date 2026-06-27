@@ -33,6 +33,8 @@ public class Main {
         studentService.saveStudent(student1);
         studentService.saveStudent(student2);
 
+
+        System.out.println("----------------------");
         groupService.findAll();
     }
 }
