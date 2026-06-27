@@ -14,9 +14,10 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, Integer age) {
+    public Student(String name, Integer age, Group group) {
         this.name = name;
         this.age = age;
+        this.group = group;
     }
 
     @Column(name = "name", unique = true, nullable = false)
@@ -27,6 +28,10 @@ public class Student {
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.REMOVE)
     private Profile profile;
+
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
 
     public Profile getProfile() {
         return profile;
