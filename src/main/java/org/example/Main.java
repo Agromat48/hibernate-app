@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -31,5 +32,7 @@ public class Main {
 
         studentService.saveStudent(student1);
         studentService.saveStudent(student2);
+
+        groupService.findAll();
     }
 }

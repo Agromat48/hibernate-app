@@ -19,7 +19,7 @@ public class Group {
     @Column(name = "grad_year")
     private Long graduationYear;
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER) // n + 1 запрос
     private List<Student> studentList;
 
     public Group() {
