@@ -2,6 +2,9 @@ package org.example;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "students")
 @SuppressWarnings("JpaDataSourceORMInspection")
@@ -33,6 +36,14 @@ public class Student {
     @JoinColumn(name = "group_id")
     private Group group;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "student_courses",
+            joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id")
+    )
+    private List<Course> courseList = new ArrayList<>();
+
     public Profile getProfile() {
         return profile;
     }
@@ -59,5 +70,13 @@ public class Student {
 
     public Integer getAge() {
         return age;
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
     }
 }

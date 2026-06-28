@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@SuppressWarnings({"SpringJavaInjectionPointsAutowiringInspection"})
 public class GroupService {
     private final SessionFactory sessionFactory;
 

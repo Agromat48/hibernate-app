@@ -3,15 +3,13 @@ package org.example.service;
 import org.example.TransactionHelper;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 import org.example.Student;
 
 import java.util.List;
 
-@SuppressWarnings({"removal", "SpringJavaInjectionPointsAutowiringInspection"})
-
 @Service
+@SuppressWarnings({"removal", "SpringJavaInjectionPointsAutowiringInspection"})
 public class StudentService {
 
     private final SessionFactory sessionFactory;

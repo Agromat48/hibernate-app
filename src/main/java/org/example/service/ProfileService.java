@@ -2,7 +2,6 @@ package org.example.service;
 
 import org.example.Profile;
 import org.example.TransactionHelper;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
@@ -25,4 +24,7 @@ public class ProfileService {
         });
     }
 
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
 }
